@@ -1,0 +1,510 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Fondo oscuro principal */
+    color: #f0f0f0;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0; /* Asegurar que no haya padding en el body que desplace el contenido */
+}
+
+/* Contenedor principal para centrar el contenido */
+.container {
+    width: 90%;
+    max-width: 1400px; /* Ancho máximo para el contenido principal */
+    margin: 20px auto; /* Centrar horizontalmente y dar margen vertical */
+    padding: 30px;
+    background-color: #242424; /* Fondo para el contenedor principal */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para todos los títulos H2 */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #ff5722; /* Naranja de acento */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Línea decorativa debajo de los títulos H2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #ff5722;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Estilos para párrafos generales */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Estilos para texto en negrita */
+strong {
+    color: #ffcc00; /* Amarillo para resaltar texto importante */
+}
+
+/* Estilos para secciones de información general (descripción, ubicación) */
+.info-section {
+    max-width: 900px; /* Ancho máximo para el texto */
+    margin: 40px auto; /* Centrar y dar margen vertical */
+    padding: 30px;
+    background-color: #1e1e1e; /* Fondo de sección */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border-top: 5px solid #ff5722;
+    text-align: center; /* Centrar texto dentro de la sección */
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left; /* Alinear ítems de lista a la izquierda */
+}
+
+.info-section li {
+    background-color: #2a2a2a;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-left: 4px solid #ff5722;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la sección de artistas */
+.artist-section {
+    margin-top: 40px; /* Margen superior para separar de la cabecera si la hubiera */
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border-top: 5px solid #ff5722;
+    text-align: center;
+}
+
+/* Estilos para la tabla de artistas */
+.artist-table {
+    width: 100%;
+    table-layout: fixed; /* NEW: Asegura que el ancho de las columnas sea predecible */
+    border-collapse: separate;
+    border-spacing: 0 15px; /* Espacio entre filas */
+    margin-bottom: 50px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que el contenido se mantenga dentro de los bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.artist-table th, .artist-table td {
+    padding: 20px;
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 1.1rem;
+    border: none;
+    word-wrap: break-word; /* Permite que las palabras largas se rompan y no desborden */
+}
+
+/* Ancho explícito para la primera columna del encabezado (Nombre del Artista) */
+.artist-table th:first-child {
+    width: 200px; /* Ancho fijo para la columna del nombre del artista */
+    min-width: 150px; /* Asegura que no se haga demasiado pequeña */
+}
+/* La columna con colspan="5" tomará el ancho restante */
+
+.artist-table th {
+    background-color: #ff5722;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.artist-table tbody tr {
+    background-color: #333333;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-table tbody tr:hover {
+    background-color: #3a3a3a;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 87, 34, 0.4);
+}
+
+.artist-table td:first-child {
+    font-weight: bold;
+    color: #ffcc00;
+    text-align: left; /* Alinea el nombre del artista a la izquierda */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Estilos para las imágenes de artistas */
+.artist-img {
+    width: 100%; /* La imagen ocupará el 100% del ancho disponible en su celda */
+    max-width: 250px; /* Pero no se hará más grande de 250px */
+    height: 250px; /* Mantiene la altura fija */
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #ff5722;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.artist-table td a:hover .artist-img {
+    transform: scale(1.05);
+    border-color: #ff8c42;
+}
+
+/* Estilos para la sección de ubicación (mapas) */
+.location-section h3 {
+    color: #ffcc00; /* Título para la dirección */
+    font-size: 1.3rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.map-wrapper {
+    max-width: 800px; /* Ancho máximo para los mapas */
+    margin: 20px auto; /* Centrar mapas */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    display: block; /* Eliminar espacio extra debajo del iframe */
+}
+
+
+/* Estilos específicos para el formulario de contacto */
+.contact-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border-top: 5px solid #ff5722;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ff5722;
+    font-size: 1.1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ff5722;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #ff7043;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.3);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ESTILOS DE BOTONES MEJORADOS */
+.contact-form button,
+.ticket-info-section .buy-button {
+    background: linear-gradient(135deg, #FF6F00 0%, #FF3D00 100%);
+    color: #fff;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 30px auto 0 auto;
+    max-width: 300px;
+}
+
+.contact-form button:hover,
+.ticket-info-section .buy-button:hover {
+    background: linear-gradient(135deg, #FF3D00 0%, #FF6F00 100%);
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(255, 87, 34, 0.7), 0 0 50px rgba(255, 87, 34, 0.5);
+}
+
+.contact-form button::before,
+.ticket-info-section .buy-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
+}
+
+.contact-form button:hover::before,
+.ticket-info-section .buy-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Estilos para la sección de boletería (tarjetas) */
+.ticket-info-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border-top: 5px solid #ff5722;
+    text-align: center;
+}
+
+.ticket-info-section p.intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #d0d0d0;
+}
+
+.ticket-info-section ul.ticket-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ticket-info-section ul.ticket-list li {
+    background-color: #2c2c2c;
+    border-left: none;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    flex: 1 1 calc(33% - 40px);
+    min-width: 280px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.ticket-info-section ul.ticket-list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #ff5722, #ffcc00);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.ticket-info-section ul.ticket-list li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(255, 87, 34, 0.6);
+    border: 2px solid #ff5722;
+}
+
+.ticket-info-section ul.ticket-list li:hover::before {
+    transform: translateY(0);
+}
+
+.ticket-info-section ul.ticket-list li h3 {
+    color: #ffcc00;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.ticket-info-section ul.ticket-list li .price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.ticket-info-section ul.ticket-list li .price span {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #d0d0d0;
+}
+
+.ticket-info-section ul.ticket-list li p {
+    font-size: 0.95rem;
+    color: #bbb;
+    margin-bottom: 0;
+}
+
+/* Estilos para el Pie de Página */
+footer {
+    background: linear-gradient(to right, #1e1e1e, #0a0a0a);
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 3px solid #ff5722;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.7);
+    margin-top: 60px;
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .social-icons {
+    margin-bottom: 20px;
+}
+
+footer .social-icons a {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ff5722;
+    transform: scale(1.2) rotate(5deg);
+}
+
+footer p {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 0;
+}
+
+footer p a {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .ticket-info-section ul.ticket-list li {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+
+    .ticket-info-section h2,
+    h2 {
+        font-size: 2rem;
+    }
+
+    .ticket-info-section .buy-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    .artist-table {
+        display: block; /* La tabla se comporta como un bloque */
+        overflow-x: auto; /* Permite scroll horizontal si el contenido es demasiado ancho */
+        white-space: nowrap; /* Evita que el contenido de las celdas se envuelva */
+    }
+
+    .artist-table thead,
+    .artist-table tbody,
+    .artist-table th,
+    .artist-table td,
+    .artist-table tr {
+        display: block; /* Los elementos de la tabla se comportan como bloques */
+        width: 100%;
+        white-space: normal; /* Permite que el texto se envuelva dentro de la celda */
+    }
+
+    .artist-table th,
+    .artist-table td {
+        text-align: left;
+        border-bottom: 1px solid #444;
+        padding: 15px;
+    }
+
+    .artist-table td:first-child {
+        padding-left: 15px;
+    }
+
+    .artist-table tr {
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .artist-table img {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        display: block;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket-info-section ul.ticket-list li {
+        flex: 1 1 90%;
+        max-width: 90%;
+    }
+
+    .ticket-info-section h2,
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .ticket-info-section .buy-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    footer .social-icons a {
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+}
